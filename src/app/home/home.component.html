@@ -1,0 +1,25 @@
+<head>
+        <button rel="stylesheet" href="home.component.css"></button>
+</head>
+
+<button id="getAnother" type="button" class="btn btn-primary" (click) = "getJoke(category)">Try me again!</button>
+<button type="button" class="btn btn-outline-primary" (click) = "likeJoke()">Like</button>
+
+<div>
+    <h5>Joke:</h5>
+    {{joke}}
+    <br><br>
+    <div>
+        <h2>Categories</h2>
+        <div *ngFor="let category of categories">
+            <button type="button" class="btn btn-dark btn-sm" (click) = "getJoke(category)">{{category}}</button>
+        </div>
+    </div>
+    <br>
+</div>
+
+<br>
+
+<div *ngFor="let nice of goodJokes">
+    {{nice}}
+</div>

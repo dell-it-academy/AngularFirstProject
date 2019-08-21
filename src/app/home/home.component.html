@@ -1,7 +1,3 @@
-<head>
-        <button rel="stylesheet" href="home.component.css"></button>
-</head>
-
 <button id="getAnother" type="button" class="btn btn-primary" (click) = "getJoke(category)">Try me again!</button>
 <button type="button" class="btn btn-outline-primary" (click) = "likeJoke()">Like</button>
 
@@ -11,15 +7,18 @@
     <br><br>
     <div>
         <h2>Categories</h2>
-        <div *ngFor="let category of categories">
-            <button type="button" class="btn btn-dark btn-sm" (click) = "getJoke(category)">{{category}}</button>
-        </div>
+            <select [(ngModel)] = "category">
+                <option id="categoryDropDown" *ngFor="let category of categories" [value] = "category">{{category}}</option>
+            </select>
     </div>
     <br>
 </div>
 
-<br>
+    <br>
 
-<div *ngFor="let nice of goodJokes">
-    {{nice}}
+<div *ngIf="goodJokes.length>0">
+    <h2>Melhores: </h2>
+    <div *ngFor="let nice of goodJokes; let i = index">
+        <h6 (click)="removeJoke(i)">{{nice}}</h6>
+    </div>
 </div>

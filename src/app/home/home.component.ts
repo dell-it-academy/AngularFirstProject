@@ -16,25 +16,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    this.jokes.getJoke().subscribe(
-      res => {
-        this.joke = res['value'];
-      }
-    );
+    console.log(this.category);
   }
 
-  
-
-          getAJoke(){
-            this.jokes.getJoke().subscribe(
-              res => {
-                this.joke = res['value'];
-              }
-            )
-          }
-
-
-          
   getJoke(category: string){
     if(category != 'random'){
       this.category = category;
@@ -50,7 +34,7 @@ export class HomeComponent implements OnInit {
         }
       );
     }
-    console.log(this.category);
+    console.log(category);
   }
 
   likeJoke(){
@@ -65,8 +49,8 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  removeJoke(index){
+    this.goodJokes.splice(index, 1);
+  }
 }
-
-
-/*
-*/

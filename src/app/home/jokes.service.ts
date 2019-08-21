@@ -16,8 +16,8 @@ export class JokesService {
     return this.http.get(this.apiRandomJoke);
   }
 
-  getCategoryJoke(category: string){
-    return this.http.get(this.apiCategoryJoke + category);
+  getCategoryJoke(category){
+    return this.http.get(`${this.apiCategoryJoke}${category}`);
   }
 
   getCategories(){
